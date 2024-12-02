@@ -2,15 +2,28 @@
 unused since v2 (Firefox v133)
 @import url(firefox-csshacks/chrome/window_control_placeholder_support.css);
 */
+
 @import url(chrome/autohide_sidebar.css);
 @import url(chrome/hide_tabs_toolbar_v2.css);
 @import url(chrome/overlay_sidebar_header.css);
 
+/* Remove some padding from nav-bar */
+:root {
+    --urlbar-container-height: 35px !important;
+}
+:root:not([inFullscreen]) #nav-bar {
+  height: 35px !important;
+}
+#urlbar-container, #search-container {
+    padding-block: 0px !important;
+}
 
+/* Remove the spacer before the window-buttons */
 .titlebar-spacer {
     width: 0px !important;
 }
 
+/* Re-style the window buttons to look consistent */
 .titlebar-button {
     margin: auto !important;
     padding: var(--toolbarbutton-inner-padding) !important;
@@ -19,12 +32,15 @@ unused since v2 (Firefox v133)
     width: 32px !important;
 }
 
+/* Fix weird padding on this button */
+#PanelUI-menu-button {
+    width: 36px !important;
+    padding: 0px !important;
+}
+
+/* Take the close-button to screen edge */
 .titlebar-button.titlebar-close {
     height: 100% !important;
     border-radius: var(--toolbarbutton-border-radius) 0 0 var(--toolbarbutton-border-radius) !important;
 }
 
-#PanelUI-menu-button {
-    width: 36px !important;                                         
-    padding: 0px !important;
-}
