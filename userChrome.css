@@ -1,0 +1,30 @@
+/*
+unused since v2 (Firefox v133)
+@import url(firefox-csshacks/chrome/window_control_placeholder_support.css);
+*/
+@import url(chrome/autohide_sidebar.css);
+@import url(chrome/hide_tabs_toolbar_v2.css);
+@import url(chrome/overlay_sidebar_header.css);
+
+
+.titlebar-spacer {
+    width: 0px !important;
+}
+
+.titlebar-button {
+    margin: auto !important;
+    padding: var(--toolbarbutton-inner-padding) !important;
+    border-radius: var(--toolbarbutton-border-radius) !important;
+    height: 32px !important;
+    width: 32px !important;
+}
+
+.titlebar-button.titlebar-close {
+    height: 100% !important;
+    border-radius: var(--toolbarbutton-border-radius) 0 0 var(--toolbarbutton-border-radius) !important;
+}
+
+#PanelUI-menu-button {
+    width: 36px !important;                                         
+    padding: 0px !important;
+}
