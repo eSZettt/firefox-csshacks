@@ -1,53 +1,62 @@
 /* Transition the left margin to center tab-icons when we minimize the sidebar */
 
-/* TODO: Remove Sound icon on minimize
- * TODO: Maybe remove sub-tab-count on minimize 
- */
 :root {
   /* UserChrome variables aren't made available in addon css. So, we have to re-define them here. */
   --uc-autohide-sidebar-delay: 600ms; 
   --uc-autohide-transition-duration: 115ms;
   --uc-autohide-transition-type: linear;
-  --collapsed-sidebar-left-margin: 8px
+  --collapsed-sidebar-left-margin: 8px;
 }
 
-tab-twisty.twisty {
-  	min-width: unset;
-	transition: width var(--uc-autohide-transition-duration) var(--uc-autohide-transition-type) var(--uc-autohide-sidebar-delay);
-  will-change: width;
+tab-twisty.twisty,
+tab-twisty.twisty::before, 
+tab-closebox.closebox, 
+tab-sound-button.sound-button,
+tab-counter.counter::before,
+tab-counter.counter::after {
+  min-width: unset;
+  transition-property: width, visibility;
+  transition-duration: var(--uc-autohide-transition-duration);
+  transition-type: var(--uc-autohide-transition-type);
+  transition-delay: var(--uc-autohide-sidebar-delay);
+}
 
-  &::before {
-    transition: visibility var(--uc-autohide-sidebar-delay) linear 0ms;
-  	will-change: visibility;
+
+tab-item.subtree-collapsed .counter { 
+  display: flex;
+  flex-direction: row;
+  &::before, 
+  &::after {
+   width: .5ch;
   }
-}
-
-tab-closebox.closebox {
-	transition: visibility var(--uc-autohide-sidebar-delay) linear 0ms;
-  	will-change: visibility;
 }
 
 :root.sidebar:hover {
-  tab-twisty.twisty {
+  tab-twisty.twisty,
+  tab-twisty.twisty::before,
+  tab-closebox.closebox,
+  tab-sound-button.sound-button,
+  tab-counter.counter::before,
+  tab-counter.counter::after {
   	transition-delay: 0ms;
-    &::before {
-    	transition-duration: 0ms;
-    }
-  }
-  tab-closebox.closebox {
-  	transition-duration: 0ms;
   }
 }
 
 :root.sidebar:not(:hover) {
   tab-twisty.twisty {
   	width: var(--collapsed-sidebar-left-margin);
-    
-    &::before {
-    	visibility: hidden;
-    }
   }
-  tab-closebox.closebox {
+  tab-twisty.twisty::before,
+  tab-closebox.closebox,
+  tab-sound-button.sound-button,
+  tab-counter.counter::before,
+  tab-counter.counter::after {
     visibility: hidden;
+  }
+  
+  tab-twisty.twisty::before,
+  tab-counter.counter::before,
+  tab-counter.counter::after {
+    width: 0px;
   }
 }
