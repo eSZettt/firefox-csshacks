@@ -1,10 +1,8 @@
-/* This file is used to style the Tree-Style-Tab addon's sidebar.
- * Load this file at the bottom of TST's Options (in the "Advanced" section).
- * See TST's documentation for more information: 
- * https://github.com/piroor/treestyletab/wiki/Code-snippets-for-custom-style-rules#for-tsts-options-page-version-20-and-later
- */
+/* Transition the left margin to center tab-icons when we minimize the sidebar */
 
-/* Transition TST elements to center tab-icons when we collapse the sidebar */
+/* TODO: Remove Sound icon on minimize
+ * TODO: Maybe remove sub-tab-count on minimize 
+ */
 :root {
   /* UserChrome variables aren't made available in addon css. So, we have to re-define them here. */
   --uc-autohide-sidebar-delay: 600ms; 
@@ -26,7 +24,7 @@ tab-twisty.twisty {
 
 tab-closebox.closebox {
 	transition: visibility var(--uc-autohide-sidebar-delay) linear 0ms;
-  will-change: visibility;
+  	will-change: visibility;
 }
 
 :root.sidebar:hover {
