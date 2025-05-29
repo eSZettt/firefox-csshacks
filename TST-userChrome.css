@@ -8,13 +8,16 @@
   --collapsed-sidebar-left-margin: 8px;
 }
 
+tab-twisty.twisty { 
+  min-width: unset;
+}
+
 tab-twisty.twisty,
 tab-twisty.twisty::before, 
 tab-closebox.closebox, 
 tab-sound-button.sound-button,
 tab-counter.counter::before,
 tab-counter.counter::after {
-  min-width: unset;
   transition-property: width, visibility;
   transition-duration: var(--uc-autohide-transition-duration);
   transition-type: var(--uc-autohide-transition-type);
