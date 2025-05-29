@@ -20,7 +20,7 @@ tab-counter.counter::before,
 tab-counter.counter::after {
   transition-property: width, visibility;
   transition-duration: var(--uc-autohide-transition-duration);
-  transition-type: var(--uc-autohide-transition-type);
+  transition-timing-function: var(--uc-autohide-transition-type);
   transition-delay: var(--uc-autohide-sidebar-delay);
 }
 
